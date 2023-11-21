@@ -8,9 +8,9 @@ import os
 
 
 class Visualization:
-    def __init__(self, train_file, test_file):
-        self.train_data = pd.read_csv(train_file)
-        self.test_data = pd.read_csv(test_file)
+    def __init__(self, train_data, test_data):
+        self.train_data = train_data
+        self.test_data = test_data
 
     # def get_train_info(self):
     #     if self.train is not None:
@@ -106,7 +106,8 @@ class Visualization:
 
 
 if __name__ == "__main__":
-
-    visualize = Visualization(train_file='../../data/train.csv', test_file='../../data/test.csv')
+    train_data = pd.read_csv("./data/train.csv")
+    test_data = pd.read_csv("./data/test.csv")
+    visualize = Visualization(train_data, test_data)
     visualize.plot_train_test_distribution()
 

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import GradientBoostingRegressor
-from evaluate import evaluate_metric  # Assuming you have a custom evaluation metric
+from .evaluate import evaluate_metric  # Assuming you have a custom evaluation metric
 import time
 from sklearn.model_selection import train_test_split
 import xgboost as xgb
@@ -34,6 +34,7 @@ class TrainModel:
             print("Evaluation time: ", end_time - start_time)
 
         model_type = str(type(self.model)).split("'")[1].split('.')[-1]
+        print(f"Trained model will store at ./models/{model_type}.pkl")
         with open(f'./models/{model_type}.pkl', 'wb') as file:
             pickle.dump(self.model, file)
 

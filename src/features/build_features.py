@@ -6,13 +6,18 @@ import os
 
 
 class FeatureEngineering:
-    def __init__(self, train_file, test_file):
-        self.train_data = pd.read_csv(train_file)
-        self.test_data = pd.read_csv(test_file)
-
+    def __init__(self, train_data, test_data):
+        self.train_data = train_data
+        self.test_data = test_data
         self.train_data['log_trip_duration'] = np.log(self.train_data['trip_duration'].values + 1)
 
         return
+
+    def get_train_data(self):
+        return self.train_data
+
+    def get_test_data(self):
+        return self.test_data
 
     def all_feature_engineering(self):
         self.datetime_feature()
