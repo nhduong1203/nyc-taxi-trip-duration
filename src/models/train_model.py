@@ -40,7 +40,7 @@ class TrainModel:
 
 if __name__ == "__main__":
     # Example usage
-    train_data = pd.read_csv('./src/data/train.csv')
+    train_data = pd.read_csv('./data/train.csv')
     train = train_data.drop(columns=['trip_duration', 'pickup_datetime', 'dropoff_datetime', 'store_and_fwd_flag', 'trip_duration', 'id'])
     y = np.log(train_data['trip_duration'].values + 1)
     print(train_data.columns)
